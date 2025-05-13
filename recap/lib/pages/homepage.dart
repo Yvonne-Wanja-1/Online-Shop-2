@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recap/widgets/homepageappbar.dart';
+import 'package:recap/widgets/itemswidget.dart';
 
 // Define a data class for category information
 class _CategoryData {
@@ -155,7 +156,7 @@ class Homepage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 20), // Added spacing after the search bar
+                        const SizedBox(height: 10), // Added spacing after the search bar
                         const Text(
                           'Categories',
                           style: TextStyle(
@@ -164,8 +165,9 @@ class Homepage extends StatelessWidget {
                             color: Colors.blue,
                           ),
                         ),
-                        const SizedBox(height: 20), // Added spacing before the categories row
+                        const SizedBox(height: 10), // Added spacing before the categories row
                         SingleChildScrollView(
+
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: List.generate(_categories.length, (index) {
@@ -176,20 +178,40 @@ class Homepage extends StatelessWidget {
                               );
                             }),
                           ),
-                        ),
-                              ],
+                        ), 
+                        Container(
+                          alignment: Alignment.centerLeft,// meaning left alignment
+                          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                          child: const Text(
+                            'Best Selling Products: ',
+                           
+
+                            style: TextStyle(
+                               //underline:
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.blue,
+                              decorationThickness: 2,
+                              decorationStyle: TextDecorationStyle.solid,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blue,
                             ),
                           ),
-                ),
-              ),
-                      ],
-                    ),
-                  ),
-              ),
-              
-              
-            
-          );
-      
+                        ),
+SizedBox(height: 10), // Added spacing before the items widget
+                        Itemswidget(),
+                      
+
+                      ], // Closes Column's children
+                    ), // Closes Column
+                  ), // Closes Padding (child of Center)
+                ), // Closes Center
+              ), // Closes grey Container
+            ], // Closes ListView's children
+          ), // Closes ListView
+        ), // Closes Padding (body padding)
+      ), // Closes Scaffold
+    ); // Closes SafeArea
   }
 }
