@@ -30,6 +30,7 @@ class Itemswidget extends StatelessWidget {
             children: [
               Container(
                 height: 170, // Explicitly set the height of the grey container
+                width: 120,
                 margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color: Colors.grey,
@@ -43,19 +44,37 @@ class Itemswidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start, // Align children to the top
-                 // mainAxisSize: MainAxisSize.min,
-                 // crossAxisAlignment: CrossAxisAlignment.end,
+                child: Stack( // Use an inner Stack to layer the image and the icon
                   children: [
-                  Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0, right: 8.0), // Add padding from the top and right edges
-                      child: Icon(
-                        //position the icon to the right:
-                        Icons.favorite,
-                        color: Colors.red,
+                    Center( // Center the main image content
+                      child: InkWell( // Corrected typo from Inwell
+                        onTap: () {
+                          // Handle tap event here, e.g., navigate to item details
+                          print("Image tapped!");
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(3), // Margin around the image
+                          child: ClipRRect( // Add ClipRRect to round the corners of the image
+                            borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
+                            child: Image.asset(
+                              'images/shoes.jpg', // Replace with your image path
+                              height: 150, // Adjust size as needed within the 170px container
+                              width: 150,  // Adjust size as needed
+                              fit: BoxFit.cover, // BoxFit.cover often looks good with rounded corners
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align( // Position the favorite icon to the top-right
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0), // Padding around the icon
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 24, // Adjust icon size as needed
+                        ),
                       ),
                     ),
                   ],
