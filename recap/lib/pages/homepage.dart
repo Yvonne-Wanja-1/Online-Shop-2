@@ -159,7 +159,11 @@ class Homepage extends StatelessWidget {
                         const SizedBox(height: 10), // Added spacing after the search bar
                         const Text(
                           'Categories',
+
                           style: TextStyle(
+                            //underline:
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.blue,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue,
