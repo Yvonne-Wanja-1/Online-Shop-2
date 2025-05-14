@@ -66,40 +66,40 @@ class Itemswidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align( // Position the favorite icon to the top-right
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0), // Padding around the icon
-                        child: Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                          size: 24, // Adjust icon size as needed
+                    Positioned(
+                      top: 1,
+                      left: 3,
+                      child: Container(
+                        width: 40, // Set the width of the circle
+                        height: 40, // Set the height of the circle
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                          color: Colors.blue,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Text(
+                          '50%\noff',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Positioned(
-                top: 5,
-                left: 5,
-                child: Container(
-                  width: 40, // Set the width of the circle
-                  height: 40, // Set the height of the circle
-                  alignment: Alignment.center,
-                  decoration: const BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Text(
-                    '50%\noff',
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                    Positioned(
+                      top: 2,
+                      right: 5, // Position from the right edge
+                      child: Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                        size: 24, // Adjust icon size as needed
+                        // You can add a semantic label for accessibility if desired:
+                        // semanticLabel: 'Add to favorites',
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
+                  ],
                 ),
               ),
             ],
