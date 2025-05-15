@@ -92,7 +92,7 @@ class Homepage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)), // Added rounded corners to the container
-                  color: Colors.grey,
+                  color: const Color.fromARGB(255, 202, 170, 170),
                 ),
                 height: 500,
                 width: double.infinity,
