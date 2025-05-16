@@ -1,183 +1,156 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as Badges; // Import the badges package
 
 class Itemswidget extends StatelessWidget {
   const Itemswidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> items = [
+      {'image': 'images/shoes.jpg', 'label': 'Shoes', 'discount': '50%', 'price': '\$50'},
+      {'image': 'images/bag.jpg', 'label': 'Bag', 'discount': '30%', 'price': '\$30'},
+      {'image': 'images/watch.jpg', 'label': 'Watch', 'discount': '20%', 'price': '\$20'},
+      {'image': 'images/hat.jpg', 'label': 'Hat', 'discount': '10%', 'price': '\$10'},
+      {'image': 'images/heels.jpg', 'label': 'Heels', 'discount': '40%', 'price': '\$40'},
+    ];
+
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 2),
+        border: Border.all(color: Colors.blue, width: 1),
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
-            color: Colors.blue,
-            blurRadius: 5,
-            offset: Offset(0, 3),
+            color: Colors.blueAccent,
+            blurRadius: 3,
+            offset: Offset(0, 2),
           ),
         ],
       ),
       width: double.infinity,
-      height: 195,
+      height: 400,
       clipBehavior: Clip.antiAlias,
       child: GridView.count(
-        childAspectRatio: 0.68,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: 170, // Explicitly set the height of the grey container
-                width: 120,
-                margin: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 182, 207, 227),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.blue, width: 2),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.blue,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+        padding: const EdgeInsets.all(8), // Padding around the grid
+        crossAxisCount: 2, // 2 items in a row
+        childAspectRatio: 1 / 1.3, // Adjusted aspect ratio
+        mainAxisSpacing: 8, // Slightly increased vertical spacing
+        crossAxisSpacing: 8, // Slightly increased horizontal spacing
+        children: items.map((item) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(color: Colors.blue, width: 2),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.blueAccent,
+                  blurRadius: 3,
+                  offset: Offset(0, 2),
                 ),
-                child: Stack( // Use an inner Stack to layer the image and the icon
-                  children: [
-                    Center( // Center the main image content
-                      child: InkWell( // Corrected typo from Inwell
-                        onTap: () {
-                          // Handle tap event here, e.g., navigate to item details
-                          print("Image tapped!");
-                        },
-                        child: Container(
-                          // The InkWell's child should be a single widget, like a Column
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min, // Make the column take minimum vertical space
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.all(3), // Margin around the image
-                                child: ClipRRect( // Add ClipRRect to round the corners of the image
-                                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
-                                  child: Image.asset(
-                                    'images/shoes.jpg', // Replace with your image path
-                                    height: 100, // Adjusted height to leave space for text
-                                    width: 100,  // Adjusted width
-                                    fit: BoxFit.cover, // BoxFit.cover often looks good with rounded corners
-                                  ),
-                                ),
-                              ),
-                              // Text widgets below the image
-                              Text('Shoes', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,
-                              //undeline:
-                              decoration: TextDecoration.underline,
-                              )),
-                              const SizedBox(height: 0), // Space between text and image
-                           Padding(
-                            padding: const EdgeInsets.all(2.0), // Padding around the text
-                             child: Row(
-                              children: [
-                                Text(
-                                  '\$12.99',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                                Spacer(), // Spacer to push the next text to the right
-                                //add to cart icon:
-                                Container(
-                                  width: 30, // Set the width of the circle
-                                  height: 30, // Set the height of the circle
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Container(
-                                    width: 30, // Set the width of the circle
-                                    height: 30, // Set the height of the circle
-                                    child: Badges.Badge(
-                                     
-                                      position: Badges.BadgePosition.topEnd(top: -3, end: -3), // Adjust badge position
-                                      badgeStyle: Badges.BadgeStyle(
-                                        badgeColor: Colors.red,
-                                        padding: const EdgeInsets.all(4), // Increased padding
-                                        borderSide: BorderSide(color: Colors.white, width: 1), // Add a border for better visibility
-                                        elevation: 2, // Add elevation for a shadow effect
-                                      ),
-                                      
-                                      badgeContent: Text(
-                                        '1',
-                                        style: const TextStyle( // Made TextStyle const
-                                          color: Colors.white,
-                                          fontSize: 10, // Increased font size
-                                        ),
-                                      ),
-                                      
-                                      
-                                      
-                                      child: Center(
-                                        child: Icon(
-                                          
-                                          Icons.shopping_cart_rounded,
-                                          color: Colors.white,
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                             ),
-                           )
-                          ],
-                            ),
-                          ), // Closes Column
-                      ),
+              ],
+            ),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30), // Match the container's borderRadius
+                  child: Image.asset(
+                    item['image']!,
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover, // Ensures the image fills the container
+                  ),
+                ),
+                Positioned(
+                  top: 5,
+                  left: 5,
+                  child: Container(
+                    width: 36,
+                    height: 36,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle,
                     ),
-                    Positioned(
-                      top: 1,
-                      left: 3,
-                      child: Container(
-                        width: 30, // Set the width of the circle
-                        height: 30, // Set the height of the circle
-                        alignment: Alignment.center,
+                    child: Text(
+                      item['discount']!,
+                      style: const TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                const Positioned(
+                  top: 5,
+                  right: 5,
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                    size: 20,
+                  ),
+                ),
+                Positioned(
+                  bottom: 5,
+                  left: 10,
+                  child: Text(
+                    item['price']!,
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontFamily: 'Arial',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 5,
+                  right: 10,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
                         decoration: const BoxDecoration(
                           color: Colors.blue,
                           shape: BoxShape.circle,
                         ),
-                        child: const Text(
-                          '50%\noff',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
+                        child: const Icon(
+                          Icons.shopping_cart,
+                          color: Colors.white,
+                          size: 18,
                         ),
                       ),
-                    ),
-                    Positioned(
-                      top: -2.0, // Adjusted to move the icon slightly higher
-                      right: 5, // Position from the right edge
-                      child: Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                        size: 24, // Adjust icon size as needed
-                        // You can add a semantic label for accessibility if desired:
-                        // semanticLabel: 'Add to favorites',
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          width: 16,
+                          height: 16,
+                          alignment: Alignment.center,
+                          decoration: const BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Text(
+                            '1', // Badge count
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }

@@ -79,7 +79,7 @@ class _CategoryItemWidget extends StatelessWidget {
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -92,9 +92,9 @@ class Homepage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)), // Added rounded corners to the container
-                  color: const Color.fromARGB(255, 202, 170, 170),
+                  color: const Color.fromARGB(255, 220, 211, 211),
                 ),
-                height: 500,
+                // Removed fixed height to allow vertical expansion
                 width: double.infinity,
                 child: Center(
                   child: Padding(
@@ -107,57 +107,46 @@ class Homepage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center, // Centered the row horizontally
                           children: [
-                            Center(
-                              child: Container(
-                                height: 50,
-                                width: MediaQuery.of(context).size.width * 0.8, // Set width to 80% of screen width
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: Colors.blue,
-                                      blurRadius: 5,
-                                      offset: Offset(0, 3), // Added shadow to the container
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.all(Radius.circular(20)), // Added rounded corners
+                            Container( // Removed Center around this Container
+                                  width: MediaQuery.of(context).size.width * 0.8, // Set width to 80% of screen width
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Colors.blue,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3), // Added shadow to the container
+                                      ),
+                                    ],
+                                    borderRadius: BorderRadius.all(Radius.circular(20)), // Added rounded corners
+                                  ),
+                                  child: const Row( // Made Row const
+                                    mainAxisAlignment: MainAxisAlignment.start, // Already start, but good for clarity
+                                    children: [
+                                      Padding( // Made Padding const
+                                        padding: EdgeInsets.symmetric(horizontal: 8.0), // Added padding around the search icon
+                                        child: Icon(Icons.search, color: Colors.blue, size: 30),
+                                      ),
+                                      Text( // Made Text const
+                                        'Search here ...',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                      Spacer(), // Added spacer to push the camera icon to the right
+                                      Padding( // Made Padding const
+                                        padding: EdgeInsets.all(8.0), // Added padding around the camera icon
+                                        child: Icon(Icons.camera_alt, color: Colors.blue, size: 30),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 8.0), // Added padding around the search icon
-                                      child: Icon(
-                                        Icons.search,
-                                        color: Colors.blue,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    const Text(
-                                      'Search here ...',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                    const Spacer(), // Added spacer to push the camera icon to the right
-                                    const Padding(
-                                      padding: EdgeInsets.all(8.0), // Added padding around the camera icon
-                                      child: Icon(
-                                        Icons.camera_alt,
-                                        color: Colors.blue,
-                                        size: 30,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                         const SizedBox(height: 10), // Added spacing after the search bar
-                        const Text(
+                        const Text( // Made Text const
                           'Categories',
 
                           style: TextStyle(
@@ -182,36 +171,36 @@ class Homepage extends StatelessWidget {
                               );
                             }),
                           ),
-                        ), 
+                        ),
                         Container(
-                          alignment: Alignment.centerLeft,// meaning left alignment
-                          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                          child: const Text(
-                            'Best Selling Products: ',
-                           
-
-                            style: TextStyle(
-                               //underline:
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.blue,
-                              decorationThickness: 2,
-                              decorationStyle: TextDecorationStyle.solid,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.blue,
+                          // Made Container const
+                            alignment: Alignment.centerLeft,// meaning left alignment
+                            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                            child: const Text(
+                              'Best Selling Products: ',
+                             
+                
+                              style: TextStyle(
+                                //underline:
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.blue,
+                                decorationThickness: 2,
+                                decorationStyle: TextDecorationStyle.solid,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.blue,
+                              ),
                             ),
                           ),
-                        ),
-SizedBox(height: 10), // Added spacing before the items widget
-                        Itemswidget(),
-                      
-
+                        const SizedBox(height: 10), // Added spacing before the items widget
+                        const Itemswidget(), // Made Itemswidget const
                       ], // Closes Column's children
                     ), // Closes Column
-                  ), // Closes Padding (child of Center)
-                ), // Closes Center
-              ), // Closes grey Container
+                    ), // Closes Padding (child of Center)
+                  ), // Closes Center
+                ),
+               
             ], // Closes ListView's children
           ), // Closes ListView
         ), // Closes Padding (body padding)
