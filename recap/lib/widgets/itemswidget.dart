@@ -6,16 +6,16 @@ class Itemswidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, String>> items = [
-      {'image': 'images/shoes.jpg', 'label': 'Shoes', 'discount': '50%', 'price': '\$50'},
-      {'image': 'images/bag.jpg', 'label': 'Bag', 'discount': '30%', 'price': '\$30'},
-      {'image': 'images/watch.jpg', 'label': 'Watch', 'discount': '20%', 'price': '\$20'},
+      {'image': 'images/3.jpg', 'label': 'Shoes', 'discount': ' NEW!', 'price': '\$50.00'},
+      {'image': 'images/bag.jpg', 'label': 'Bag', 'discount': '10%', 'price': '\$30.45'},
+      {'image': 'images/watch.jpg', 'label': 'Watch', 'discount': '20%', 'price': '\$20.99'},
       {'image': 'images/hat.jpg', 'label': 'Hat', 'discount': '10%', 'price': '\$10'},
-      {'image': 'images/heels.jpg', 'label': 'Heels', 'discount': '40%', 'price': '\$40'},
+      {'image': 'images/44.jpg', 'label': 'Heels', 'discount': 'NEW!', 'price': '\$40.23'},
     ];
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 1),
+        border: Border.all(color: Colors.blue, width: 2),
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
@@ -27,11 +27,13 @@ class Itemswidget extends StatelessWidget {
         ],
       ),
       width: double.infinity,
-      height: 400,
+      height: 300, // Example: Set a fixed height for the items widget
       clipBehavior: Clip.antiAlias,
       child: GridView.count(
+        // shrinkWrap: true, // Remove or set to false
+        // physics: const NeverScrollableScrollPhysics(), // Remove to enable GridView's own scrolling
         padding: const EdgeInsets.all(8), // Padding around the grid
-        crossAxisCount: 2, // 2 items in a row
+        crossAxisCount: 2,
         childAspectRatio: 1 / 1.3, // Adjusted aspect ratio
         mainAxisSpacing: 8, // Slightly increased vertical spacing
         crossAxisSpacing: 8, // Slightly increased horizontal spacing
