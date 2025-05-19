@@ -55,9 +55,12 @@ class HomePageAppBar extends StatelessWidget {
                     ),
                   ),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      // Navigate to the cart page
+                      Navigator.pushNamed(context, "/CartPage");
+                    },
                     child: Icon(
-                      Icons.notifications,
+                      Icons.shopping_cart_outlined,
                       color: Colors.blue,
                       size: 30,
                     ),

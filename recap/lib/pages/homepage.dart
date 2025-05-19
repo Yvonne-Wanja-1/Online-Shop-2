@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recap/widgets/homepageappbar.dart';
 import 'package:recap/widgets/itemswidget.dart';
@@ -212,10 +213,11 @@ class Homepage extends StatelessWidget {
 
 
         bottomNavigationBar: CurvedNavigationBar(items: [
-          Icon(Icons.home, size: 30, color: Colors.purple),
-          Icon(Icons.search, size: 34, color: Colors.white),
           Icon(Icons.favorite, size: 30, color: Colors.red),
-          Icon(Icons.person, size: 30, color: Colors.black),
+          Icon(CupertinoIcons.cart_fill,size: 34, color: Colors.purple),
+          Icon(Icons.home, size: 30, color: Colors.white),
+          Icon(Icons.list, size: 30, color: Colors.black),
+          Icon(Icons.person, size: 30, color: Colors.yellow),
         ], 
         //corner radius:
 
