@@ -27,11 +27,11 @@ class Itemswidget extends StatelessWidget {
         ],
       ),
       width: double.infinity,
-      height: 300, // Example: Set a fixed height for the items widget
+      // height: 300, // Removed fixed height to allow expansion
       clipBehavior: Clip.antiAlias,
       child: GridView.count(
-        // shrinkWrap: true, // Remove or set to false
-        // physics: const NeverScrollableScrollPhysics(), // Remove to enable GridView's own scrolling
+        shrinkWrap: true, // Allows GridView to size itself to its content
+        physics: const NeverScrollableScrollPhysics(), // Disables GridView's own scrolling
         padding: const EdgeInsets.all(8), // Padding around the grid
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.3, // Adjusted aspect ratio
@@ -101,9 +101,9 @@ class Itemswidget extends StatelessWidget {
                     style: const TextStyle(
                       fontStyle: FontStyle.italic,
                       fontFamily: 'Arial',
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.blue,
                     ),
                   ),
                 ),

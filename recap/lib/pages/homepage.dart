@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:recap/widgets/homepageappbar.dart';
 import 'package:recap/widgets/itemswidget.dart';
@@ -183,18 +184,20 @@ class Homepage extends StatelessWidget {
                               style: TextStyle(
                                 //underline:
                                 decoration: TextDecoration.underline,
+
                                 decorationColor: Colors.blue,
-                                decorationThickness: 2,
+                                decorationThickness: 1.3,
                                 decorationStyle: TextDecorationStyle.solid,
                                 fontSize: 20,
+                                fontFamily: 'Arial', // Ensure 'Arial' font is available or use default italic style
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
                                 color: Colors.blue,
                               ),
                             ),
                           ),
-                        const SizedBox(height: 10), // Added spacing before the items widget
-                        const Itemswidget(), // Made Itemswidget const
+                        const SizedBox(height: 5), // Added spacing before the items widget
+                         const Itemswidget(), // Made Itemswidget const
                       ], // Closes Column's children
                     ), // Closes Column
                     ), // Closes Padding (child of Center)
@@ -204,6 +207,32 @@ class Homepage extends StatelessWidget {
             ], // Closes ListView's children
           ), // Closes ListView
         ), // Closes Padding (body padding)
+
+
+
+
+        bottomNavigationBar: CurvedNavigationBar(items: [
+          Icon(Icons.home, size: 30, color: Colors.purple),
+          Icon(Icons.search, size: 34, color: Colors.white),
+          Icon(Icons.favorite, size: 30, color: Colors.red),
+          Icon(Icons.person, size: 30, color: Colors.black),
+        ], 
+        //corner radius:
+
+        
+
+          color: Colors.blue,
+          buttonBackgroundColor: Colors.blue,
+          backgroundColor: Colors.transparent,
+          height: 60,
+          animationCurve: Curves.easeInOut,
+          animationDuration: const Duration(milliseconds: 300),
+          index: 0,
+          onTap: (index) {
+          
+          },
+        )
+        ,
       ), // Closes Scaffold
     ); // Closes SafeArea
   }
