@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recap/widgets/cartappbar.dart';
+import 'package:recap/widgets/cartitemsamples.dart';
 
 class Cartpage extends StatelessWidget {
   const Cartpage({super.key});
@@ -35,7 +36,7 @@ class Cartpage extends StatelessWidget {
               ],
             ),
             child: Column(children: [
-
+CartItemSamples(),
 
               
             ],),
