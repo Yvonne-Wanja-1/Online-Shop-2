@@ -1,2 +1,2 @@
-This is a an E-commerce application for an online shop
+This is a an E-commerce app for an online shop
 
