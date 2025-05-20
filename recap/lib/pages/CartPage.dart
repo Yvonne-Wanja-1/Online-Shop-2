@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recap/widgets/cartappbar.dart';
+import 'package:recap/widgets/cartbottombar.dart';
 import 'package:recap/widgets/cartitemsamples.dart';
 
 class Cartpage extends StatelessWidget {
@@ -92,6 +93,8 @@ SizedBox(width: 10,),
       ),
     ],
   ),
+
+  bottomNavigationBar: CartBottomBar(), // Added bottom navigation bar
 );
     
   }
