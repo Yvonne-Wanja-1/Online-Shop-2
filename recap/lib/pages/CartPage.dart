@@ -94,7 +94,7 @@ SizedBox(width: 10,),
     ],
   ),
 
-  bottomNavigationBar: CartBottomBar(), // Added bottom navigation bar
+  bottomNavigationBar: CartBottomBar(), 
 );
     
   }
