@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recap/widgets/itemappbar.dart';
+r
 
 class ItemPage extends StatelessWidget {
   const ItemPage({super.key});
@@ -8,10 +8,6 @@ class ItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: [
-          ItemAppBar(),
-        ],
-      ),
 
     );
   }
