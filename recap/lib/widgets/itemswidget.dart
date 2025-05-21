@@ -13,146 +13,154 @@ class Itemswidget extends StatelessWidget {
       {'image': 'images/44.jpg', 'label': 'Heels', 'discount': 'NEW!', 'price': '\$40.23'},
     ];
 
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 2),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.blueAccent,
-            blurRadius: 3,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      width: double.infinity,
-      // height: 300, // Removed fixed height to allow expansion
-      clipBehavior: Clip.antiAlias,
-      child: GridView.count(
-        shrinkWrap: true, // Allows GridView to size itself to its content
-        physics: const NeverScrollableScrollPhysics(), // Disables GridView's own scrolling
-        padding: const EdgeInsets.all(8), // Padding around the grid
-        crossAxisCount: 2,
-        childAspectRatio: 1 / 1.3, // Adjusted aspect ratio
-        mainAxisSpacing: 8, // Slightly increased vertical spacing
-        crossAxisSpacing: 8, // Slightly increased horizontal spacing
-        children: items.map((item) {
-          return Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: Colors.blue, width: 2),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.blueAccent,
-                  blurRadius: 3,
-                  offset: Offset(0, 2),
-                ),
-              ],
+    return InkWell(
+      onTap: () {
+        // Navigate to the item page
+        Navigator.pushNamed(context, '/ItemPage');
+
+      },
+        
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue, width: 2),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.blueAccent,
+              blurRadius: 3,
+              offset: Offset(0, 2),
             ),
-            child: Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30), // Match the container's borderRadius
-                  child: Image.asset(
-                    item['image']!,
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover, // Ensures the image fills the container
+          ],
+        ),
+        width: double.infinity,
+        // height: 300, // Removed fixed height to allow expansion
+        clipBehavior: Clip.antiAlias,
+        child: GridView.count(
+          shrinkWrap: true, // Allows GridView to size itself to its content
+          physics: const NeverScrollableScrollPhysics(), // Disables GridView's own scrolling
+          padding: const EdgeInsets.all(8), // Padding around the grid
+          crossAxisCount: 2,
+          childAspectRatio: 1 / 1.3, // Adjusted aspect ratio
+          mainAxisSpacing: 8, // Slightly increased vertical spacing
+          crossAxisSpacing: 8, // Slightly increased horizontal spacing
+          children: items.map((item) {
+            return Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: Colors.blue, width: 2),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.blueAccent,
+                    blurRadius: 3,
+                    offset: Offset(0, 2),
                   ),
-                ),
-                Positioned(
-                  top: 5,
-                  left: 5,
-                  child: Container(
-                    width: 36,
-                    height: 36,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      shape: BoxShape.circle,
+                ],
+              ),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(30), // Match the container's borderRadius
+                    child: Image.asset(
+                      item['image']!,
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover, // Ensures the image fills the container
                     ),
-                    child: Text(
-                      item['discount']!,
-                      style: const TextStyle(
-                        fontSize: 10,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  ),
+                  Positioned(
+                    top: 5,
+                    left: 5,
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const Positioned(
-                  top: 5,
-                  right: 5,
-                  child: Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                    size: 20,
-                  ),
-                ),
-                Positioned(
-                  bottom: 5,
-                  left: 10,
-                  child: Text(
-                    item['price']!,
-                    style: const TextStyle(
-                      fontStyle: FontStyle.italic,
-                      fontFamily: 'Arial',
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 5,
-                  right: 10,
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.shopping_cart,
+                      child: Text(
+                        item['discount']!,
+                        style: const TextStyle(
+                          fontSize: 10,
                           color: Colors.white,
-                          size: 18,
+                          fontWeight: FontWeight.bold,
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: Container(
-                          width: 16,
-                          height: 16,
-                          alignment: Alignment.center,
+                    ),
+                  ),
+                  const Positioned(
+                    top: 5,
+                    right: 5,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                      size: 20,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 5,
+                    left: 10,
+                    child: Text(
+                      item['price']!,
+                      style: const TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Arial',
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 5,
+                    right: 10,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
                           decoration: const BoxDecoration(
-                            color: Colors.red,
+                            color: Colors.blue,
                             shape: BoxShape.circle,
                           ),
-                          child: const Text(
-                            '1', // Badge count
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          child: const Icon(
+                            Icons.shopping_cart,
+                            color: Colors.white,
+                            size: 18,
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: Container(
+                            width: 16,
+                            height: 16,
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Text(
+                              '1', // Badge count
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        }).toList(),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
