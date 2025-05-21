@@ -5,9 +5,19 @@ class CartItemSamples extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define a list of your new image names
+    // Make sure these images exist in your 'images/' asset folder
+    // and that your pubspec.yaml is configured to include them.
+    final List<String> productImages = [ // These should just be the filenames
+      '2.jpg', // Replace with your first image name (just the filename)
+      'school bag.jpg',  // Replace with your second image name (just the filename)
+      'watch.jpg', // Replace with your third image name (just the filename)
+      'hat.jpg', // Replace with your fourth image name (just the filename)
+     // 'briefcase.jpg', // Replace with your fifth image name (just the filename)
+    ];
     return Column(
       children: [
-        for (int i = 0; i < 4; i++) // Loop to create multiple items
+        for (int i = 0; i < productImages.length; i++) // Loop through the productImages list
         Container(
           height: 120,
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -47,7 +57,7 @@ class CartItemSamples extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: AssetImage('images/$i.jpg'),
+                    image: AssetImage('images/${productImages[i]}'), // Use image from the list
                     fit: BoxFit.cover,
                   ),
                   border: Border.all(
